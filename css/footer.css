@@ -1,0 +1,15 @@
+* {
+	font-family: 微軟正黑體;
+}
+
+body {
+	margin:0;
+}
+
+.footer {
+  height: 200px;
+  max-width: 1519px;
+  border-top: 1px solid #ececee;
+  background-image: url(../images/footer-temp.png);
+  margin: 0 auto;
+}
