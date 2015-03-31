@@ -1,0 +1,39 @@
+* {
+	font-family: 微軟正黑體;
+}
+
+body {
+	margin:0;
+}
+
+.index>.fade {
+	min-width: 1024px;
+  	max-width: 1920px;
+  	margin: 0 auto;
+  	overflow: hidden;
+}
+
+.index>.fade>a {
+	position:absolute;
+	top:0;
+}
+
+.index>.fade>a>img {
+	width:100%;
+}
+
+.index>.navi {
+	text-align: center;
+}
+
+.index>.navi>span.active {
+    background-color: #575757;
+}
+.index>.navi>span {
+  	width: 10px;
+  	height: 10px;
+  	margin: 0 5px;
+  	background-color: #ececec;
+  	display: inline-block;
+  	text-align: center;
+}
