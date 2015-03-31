@@ -1,14 +1,14 @@
 var isLocal = /^file\:\/\/\//i.test(location.href);
 
 function initShoppingCart() {
-	var cartlist = [{"MerNo":"S50111AJ","MerNo1":"50111AJ","MerName":"內磨毛羅紋邊棉質上衣","Color":"杏","Size":"F","Price":360,"Num":1,"PhotoSmPath":"http://456.sweesa.com/01/5427-1.jpg","ColorPhotoPath":""},{"MerNo":"S50730S","MerNo1":"50730S","MerName":"小直筒牛仔吊帶褲","Color":"黑","Size":"M","Price":580,"Num":1,"PhotoSmPath":"http://456.sweesa.com/07/0730-1.jpg","ColorPhotoPath":""}];
+	var cartlist = [{"MerNo":"S50111AJ","MerNo1":"50111AJ","MerName":"內磨毛羅紋邊棉質上衣","Color":"杏","Size":"F","Price":360,"Num":1,"PhotoSmPath":"http://456.sweesa.com/01/5427-1.jpg","ColorPhotoPath":""},{"MerNo":"S50730S","MerNo1":"50730S","MerName":"小直筒牛仔吊帶褲","Color":"黑","Size":"M","Price":580,"Num":1,"PhotoSmPath":"http://456.sweesa.com/07/0730-1.jpg","ColorPhotoPath":""},{"MerNo":"S50111AJ","MerNo1":"50111AJ","MerName":"內磨毛羅紋邊棉質上衣","Color":"杏","Size":"F","Price":360,"Num":1,"PhotoSmPath":"http://456.sweesa.com/01/5427-1.jpg","ColorPhotoPath":""},{"MerNo":"S50730S","MerNo1":"50730S","MerName":"小直筒牛仔吊帶褲","Color":"黑","Size":"M","Price":580,"Num":1,"PhotoSmPath":"http://456.sweesa.com/07/0730-1.jpg","ColorPhotoPath":""}];
 	function getdata(cartlist) {
 		var html = "";
 		var count = 0;
 		try {
 			if (cartlist[0].MerName) {
 				for (var i = 0; i < cartlist.length; i++) {
-					html += "<table width=\"100%\">";
+					html += "<table width=\"96%\">";
 					html += "<tr>";
 					html += "<td align=\"left\" width=\"100\"><img src=\"" + cartlist[i].PhotoSmPath + "\" width=\"85\" height=\"118\"></td>";
 					html += "<td align=\"left\">";
@@ -25,8 +25,17 @@ function initShoppingCart() {
 				}
 			}
 		} catch (err) {}
-		$(".header>.control>.mybagbox>.mybaglist").html(html);
+		$(".header>.control>.mybagbox>.mybaglist").html(html).attr("class","mybaglist");
 		$(".header>.control>.mybag>.count").text(count);
+		$(".header>.control>.mybagbox").show();
+			$(".header>.control>.mybagbox>.mybaglist").mCustomScrollbar({
+	            autoDraggerLength: false,
+	            mouseWheel: "auto",
+	            scrollButtons: {
+	                enable: false
+	            }
+	        });
+        $(".header>.control>.mybagbox").hide();
 	}
 	if (isLocal) {
 		getdata(cartlist);

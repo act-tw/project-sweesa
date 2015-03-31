@@ -90,9 +90,7 @@ body {
 	height: 270px;
 	margin: 20px auto;
 	border-bottom: 1px solid #ececec;
-	overflow: auto;
-  	overflow-x: hidden;
-  	overflow-y: auto;
+	overflow: hidden;
 }
 
 .header>.control>.mybagbox>.checkout {
