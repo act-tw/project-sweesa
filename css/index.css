@@ -29,6 +29,7 @@ body {
 .index>.navi>span.active {
     background-color: #575757;
 }
+
 .index>.navi>span {
   	width: 10px;
   	height: 10px;
@@ -36,4 +37,5 @@ body {
   	background-color: #ececec;
   	display: inline-block;
   	text-align: center;
+  	cursor: pointer;
 }

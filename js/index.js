@@ -39,27 +39,48 @@ $(function() {
 		(function() {
 			var sid = null;
 
+			function set(index) {
+				if (index === 0) {
+					$(".index>.fade>a").eq(0).fadeIn(function() {
+						$(".index>.fade>a").show();
+					});
+				} else if ($(".index>.navi>span").index($(".index>.navi>span.active")) > index) {
+					$(".index>.fade>a").eq(index).fadeIn(function() {
+						$(".index>.fade>a:gt(" + index + ")").show();
+					});
+				} else {
+					//未完成
+
+				}
+				navi(index)
+			}
+			function navi(index) {
+				$(".index>.navi>span.active").removeClass();
+				$(".index>.navi>span").eq(index).addClass("active");
+			}
 			function run() {
 				var index = 0;
-				(function() {
-					if ($(".index>.fade>a:visible").length === 1) {
-						index = 0;
-						$(".index>.fade>a").eq(0).fadeIn(function() {
-							$(".index>.fade>a").show();
-						});
-					} else {
-						index = $(".index>.fade>a").index($(".index>.fade>a:visible").eq(0).next());
-						$(".index>.fade>a:visible").eq(0).fadeOut();
-					}
-				})(); //fadein fadeout
-				(function() {
-					$(".index>.navi>span.active").removeClass();
-					$(".index>.navi>span").eq(index).addClass("active");
-
-				})(); //change navi dot
+				if ($(".index>.fade>a:visible").length === 1) {
+					index = 0;
+					$(".index>.fade>a").eq(0).fadeIn(function() {
+						$(".index>.fade>a").show();
+					});
+				} else {
+					index = $(".index>.fade>a").index($(".index>.fade>a:visible").eq(0).next());
+					$(".index>.fade>a:visible").eq(0).fadeOut();
+				}
+				navi(index)
 				sid = setTimeout(run, 3000);
 			}
 			sid = setTimeout(run, 3000);
+			$(".index>.navi>span").click(function() {
+				if (sid !== null) {
+					clearTimeout(sid);
+					sid= null;
+				}
+				set($(this).index());
+				sid = setTimeout(run, 3000);				
+			});
 		})(); //run
 
 
