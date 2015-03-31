@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+   	$(function() {
+		$("body").on("mouseenter mouseleave", "[text]", function() {
+			var $this = $(this);
+			var text = $this.text();
+			$this.text($this.attr("text"));
+			$this.attr("text", text);
+		});
+	})(); //change link text
+    </script>
 </head>
 <body>
 	<div style="height:1000px;"></div>
@@ -12,11 +22,30 @@
 
 
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<script type="text/javascript" src="js/footer.js"></script>
 	<div class="footer">
-
-
-
-
+		<div class="menu">
+			<a href="#TRADING_PROCESS" text="交易流程">TRADING PROCESS</a>
+			<span>|</span>
+			<a href="#PAYMENT" text="付款方式">PAYMENT</a>
+			<span>|</span>
+			<a href="#SIZE_MEASUREMENT" text="尺寸測量">SIZE MEASUREMENT</a>
+			<span>|</span>
+			<a href="#SALE_SERVICE" text="售後服務">SALE SERVICE</a>
+			<span>|</span>
+			<a>(02)2765-3366&nbsp;&nbsp;&nbsp;MON-FRI 10:00-12:30 13:30-18:30</a>
+			<span>|</span>
+			<a>ORZKIKI@GMAIL.COM</a>
+		</div>
+		<div class="icon">
+			<a class="fb" href="#fb">FB</a>
+			<a class="ig" href="#ig">IG</a>
+			<a class="line" href="#line">LINE</a>
+		</div>
+		<div class="cr">
+			<span>&copy;2008-2015 SWEESA-On Line.TWIAEN.</span>
+			<span>copyright&copy;2015 SWEESA all right reserved</span>
+		</div>
 	</div>
 
 

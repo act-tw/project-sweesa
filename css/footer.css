@@ -7,9 +7,63 @@ body {
 }
 
 .footer {
-  height: 200px;
-  max-width: 1519px;
-  border-top: 1px solid #ececee;
-  background-image: url(../images/footer-temp.png);
-  margin: 0 auto;
+  	height: 200px;
+  	max-width: 1519px;
+  	border-top: 1px solid #ececee;
+  	margin: 0 auto;
+}
+
+.footer>.menu {
+  	text-align: center;
+  	margin-top: 34px;
+}
+
+.footer>.menu>a,.footer>.menu>span {
+	font-size: 12px;
+  	text-decoration: none;
+  	color: #575757;
+  	margin: 0 5px;
+  	display: inline-block;
+  	white-space: nowrap;
+}
+
+.footer>.icon {
+  	margin: 0 auto;
+  	width: 125px;
+  	overflow: hidden;
+  	margin-top: 23px;
+}
+
+.footer>.icon>a {
+	float:left;
+	font-size: 0;
+	display: block;
+	height: 24px;
+	margin: 0px 10px;
+}
+
+.footer>.icon>.fb {
+	background-image: url(http://456.sweesa.com/web/fb.png);
+	width: 15px;
+}
+
+.footer>.icon>.ig {
+	background-image: url(http://456.sweesa.com/web/ig.png);
+	width: 24px;
+}
+
+.footer>.icon>.line {
+	background-image: url(http://456.sweesa.com/web/line.png);
+	width: 26px;
+}
+
+.footer>.cr {
+	text-align: center;
+  	margin-top: 18px;
+  	font-size: 12px;
+  	color: #575757;
+}
+
+.footer>.cr>span {
+	margin: 0 10px;
 }
