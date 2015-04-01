@@ -7,7 +7,7 @@ body {
 }
 
 .index>.fade {
-	min-width: 1024px;
+	  min-width: 1024px;
   	max-width: 1920px;
   	margin: 0 auto;
   	overflow: hidden;
@@ -16,6 +16,8 @@ body {
 .index>.fade>a {
 	position:absolute;
 	top:0;
+  min-width: 1024px;
+    max-width: 1920px;
 }
 
 .index>.fade>a>img {
@@ -24,6 +26,9 @@ body {
 
 .index>.navi {
 	text-align: center;
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .index>.navi>span.active {
@@ -38,4 +43,81 @@ body {
   	display: inline-block;
   	text-align: center;
   	cursor: pointer;
+}
+
+.index>.link {
+  min-width: 1024px;
+  max-width: 1316px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.index>.link>a {
+    width:160px;
+    height:19px;
+    display: block;
+    font-size: 0;
+}
+
+.index>.link>.ig {
+    background-image: url(http://456.sweesa.com/web/ig-1.png);
+    float: left;
+}
+
+.index>.link>.fb {
+    background-image: url(http://456.sweesa.com/web/fb-1.png);
+    float: right;
+}
+
+.index>.sp {
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
+  border-top: 1px solid #ececee;
+}
+
+.index>.rota {
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.index>.rota>.inbox {
+  position: relative;
+}
+
+.index>.rota>.inbox>a {
+  display: block;
+  float: left;
+  background-color: black;
+}
+
+.index>.rota>.inbox>a>img {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.index>.rota>.inbox>a>img:hover {
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.index>.rota>.flag {
+  width:58px;
+  height: 58px;
+  position: relative;
+  cursor: pointer;
+  display: none;
+}
+
+.index>.rota>.left {
+  background-image: url(http://456.sweesa.com/web/left.png);
+  float: left;
+}
+
+.index>.rota>.right {
+  background-image: url(http://456.sweesa.com/web/right.png);
+  float: right;
 }

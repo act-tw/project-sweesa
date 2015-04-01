@@ -38,19 +38,19 @@ $(function() {
 		})(); //reset height
 		(function() {
 			var sid = null;
-
 			function set(index) {
+				var nowat = $(".index>.navi>span").index($(".index>.navi>span.active"));
 				if (index === 0) {
 					$(".index>.fade>a").eq(0).fadeIn(function() {
 						$(".index>.fade>a").show();
 					});
-				} else if ($(".index>.navi>span").index($(".index>.navi>span.active")) > index) {
+				} else if (nowat > index) {
 					$(".index>.fade>a").eq(index).fadeIn(function() {
 						$(".index>.fade>a:gt(" + index + ")").show();
 					});
 				} else {
-					//未完成
-
+					$(".index>.fade>a:lt(" + index + ")").not($(".index>.fade>a").eq(nowat)).hide();
+					$(".index>.fade>a").eq(nowat).fadeOut();
 				}
 				navi(index)
 			}
@@ -82,9 +82,168 @@ $(function() {
 				sid = setTimeout(run, 3000);				
 			});
 		})(); //run
+	})(); //fade
+
+	(function() {
+		var data= [
+			{href:"#1",src:"http://www.sqrb.com.cn/images/2008-05/07/xin_160505071626241348917.jpg"},
+			{href:"#2",src:"http://i3.sinaimg.cn/travel/U3330P704T2D48210F101DT20081223135319.jpg"},
+			{href:"#3",src:"http://www.pk88.com.tw/images/ptphoto/V/V-A002L.jpg"},
+			{href:"#4",src:"http://www.wadoupicture.com/up_files/yh10.jpg"},
+			{href:"#5",src:"http://data.travel.china.com/travelhtml/pic/200903/p12382508588061.jpg"},
+			{href:"#6",src:"http://www.book-hotel.cn/uploadfile/images/2009-05/1241684781.jpg"}
+		];
+
+		(function() {
+			var html = "";
+			for (var i = 0, max = data.length; i < max; i++) {
+				html += "<a href=\"" + data[i].href + "\"><img src=\"" + data[i].src + "\"></a>";
+			}
+			for (var i = 0, max = data.length; i < max; i++) {
+				html += "<a href=\"" + data[i].href + "\"><img src=\"" + data[i].src + "\"></a>";
+			}
+			$(".index>.rota>.inbox").html(html);
+		})(); //build html
+		(function() {
+			var count=0;
+			for (var i = 0, max = data.length; i < max; i++) {
+				var img = new Image();
+				img.onload = img.onerror = function() {
+					count++;
+					if (count === max) {
+						ready();
+					}
+				};
+				img.src=data[i].src;
+			}
+			var rid = null;
+			$(window).resize(function() {
+				if (rid !== null) {
+					clearTimeout(rid);
+					rid = null;
+				}
+				rid = setTimeOut(function() {
+					ready();
+				},200);
+
+				
+			});
+			function ready() {
+				(function() {
+					var width=0;
+					$(".index>.rota>.inbox>a>img").each(function() {
+						width += $(this).width();
+					});
+					$(".index>.rota>.inbox").width(width);
+				})(); //set inbox width
+				(function() {
+					var height = $(".index>.rota>.inbox>a>img").height();
+					$(".index>.rota").height(height);
+					$(".index>.rota>.inbox>a").height(height);
+				})(); //set rota and a height
+				(function() {
+					var maxWidth = 1920;
+					var windowWidth = $(window).width();
+					if (windowWidth>maxWidth) {
+						windowWidth=maxWidth;
+					}
+					console.log(windowWidth);
+					var center = parseInt((windowWidth / 2) - ($(".index>.rota>.inbox>a>img").width()/2),10);
+					$(".index>.rota>.inbox").css("margin-left", 0);
+					var isMoved = false;
+					while(!isMoved) {
+						$(".index>.rota>.inbox>a>img").each(function() {
+							if (($(window).width()-maxWidth)/2>0) {
+								if ($(this).offset().left-(($(window).width()-maxWidth)/2) === center) {
+									isMoved = true;
+								} 
+							} else {
+								if ($(this).offset().left === center) {
+									isMoved = true;
+								} 	
+							}
+						});
+						if (!isMoved) {
+							var marginLeft = parseInt($(".index>.rota>.inbox").css("margin-left"),10);
+							if (marginLeft>maxWidth) {
+								marginLeft=0;
+							}
+							$(".index>.rota>.inbox").css("margin-left", marginLeft-1);
+						}
+					}
+				})(); //set image move to center
+				(function() {
+					$(".index>.rota>.flag").css("top",-($(".index>.rota>.inbox>a>img").height()/2)-29);
+				})(); //set flag top
+				(function() {
+
+
+				})(); //mouseenter and mouseleave show hide flag
+
+				(function() {
+					$(".index>.rota>.inbox").css("left",0);
+					var sid = null;
+					function run(isNext) {
+						if (!$(".index>.rota>.inbox").is(":animated")) {
+							if (isNext || isNext === undefined) {
+								$(".index>.rota>.inbox").stop().animate({
+									"left": "-=" + $(".index>.rota>.inbox>a>img").width()
+								}, function() {
+									var left = parseInt($(".index>.rota>.inbox").css("left"));
+									if (left <= $(".index>.rota>.inbox>a>img").width() * -data.length) {
+										$(".index>.rota>.inbox").css("left", 0);
+									}
+								});
+							} else if (isNext === false) {
+								var left = parseInt($(".index>.rota>.inbox").css("left"));
+								if (left === 0) {
+									$(".index>.rota>.inbox").css("left",$(".index>.rota>.inbox>a>img").width() * -data.length);
+								}
+								$(".index>.rota>.inbox").stop().animate({
+									"left": "+=" + $(".index>.rota>.inbox>a>img").width()
+								});
+
+							}
+						}
+						if (isNext === undefined) {
+							sid = setTimeout(run, 3000);	
+						}
+					}
+					sid = setTimeout(run,3000);
+
+					$(".index>.rota").mouseenter(function() {
+						$(".index>.rota>.flag").show();
+						if (sid!== null) {
+							clearTimeout(sid);
+							sid=null;
+						}
+					}).mouseleave(function() {
+						$(".index>.rota>.flag").hide();
+						sid = setTimeout(run,3000);
+					});
+
+					$(".index>.rota>.right").click(function(){
+						run(true);
+					});
+
+					$(".index>.rota>.left").click(function(){
+						run(false);
+					});
+				})(); //run
+
+
+			} //ready function
 
 
 
-	})(); //rotator
+
+
+		})();
+
+
+
+
+
+	})(); //rota
 
 });
