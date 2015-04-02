@@ -11,6 +11,7 @@ body {
   	max-width: 1920px;
   	margin: 0 auto;
   	overflow: hidden;
+    position: relative;
 }
 
 .index>.fade>a {
@@ -28,7 +29,7 @@ body {
 	text-align: center;
   min-width: 1024px;
   max-width: 1920px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .index>.navi>span.active {

@@ -116,6 +116,7 @@ $(function() {
 				};
 				img.src=data[i].src;
 			}
+			/*
 			var rid = null;
 			$(window).resize(function() {
 				if (rid !== null) {
@@ -128,6 +129,7 @@ $(function() {
 
 				
 			});
+*/
 			function ready() {
 				(function() {
 					var width=0;
@@ -140,6 +142,11 @@ $(function() {
 					var height = $(".index>.rota>.inbox>a>img").height();
 					$(".index>.rota").height(height);
 					$(".index>.rota>.inbox>a").height(height);
+					$(window).resize(function() {
+						var width = $(window).width();
+						width = width>1920 ? 1920 : width<1024 ? 1024 : width;
+						$(".index>.rota").width(width);
+					}).resize();
 				})(); //set rota and a height
 				(function() {
 					var maxWidth = 1920;
@@ -175,11 +182,6 @@ $(function() {
 				(function() {
 					$(".index>.rota>.flag").css("top",-($(".index>.rota>.inbox>a>img").height()/2)-29);
 				})(); //set flag top
-				(function() {
-
-
-				})(); //mouseenter and mouseleave show hide flag
-
 				(function() {
 					$(".index>.rota>.inbox").css("left",0);
 					var sid = null;
@@ -221,29 +223,14 @@ $(function() {
 						$(".index>.rota>.flag").hide();
 						sid = setTimeout(run,3000);
 					});
-
 					$(".index>.rota>.right").click(function(){
 						run(true);
 					});
-
 					$(".index>.rota>.left").click(function(){
 						run(false);
 					});
 				})(); //run
-
-
 			} //ready function
-
-
-
-
-
 		})();
-
-
-
-
-
 	})(); //rota
-
 });

@@ -7,9 +7,13 @@ body {
 }
 
 .header {
-	height:112px;
+	height: 87px;
 	border-bottom: 1px solid #ececee;
-	overflow: hidden;
+	min-width: 1024px;
+	max-width: 1920px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
 }
 
 .header>.logo {
@@ -58,7 +62,7 @@ body {
 .header>.control {
 	position: absolute;
   	top: 9px;
-  	right: 35px;
+  	right: 0;
 }
 
 .header>.control>a,.header>.control>span {

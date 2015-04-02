@@ -11,6 +11,7 @@ body {
   	max-width: 1519px;
   	border-top: 1px solid #ececee;
   	margin: 0 auto;
+    margin-top: 50px;
 }
 
 .footer>.menu {
