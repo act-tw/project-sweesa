@@ -47,7 +47,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	position: absolute;
-	top: 0;
+	top: -25px;
 	margin-top: 9px;
 	margin-left: 10px;
 	padding-left: 25px;
@@ -61,7 +61,7 @@ body {
 
 .header>.control {
 	position: absolute;
-  	top: 9px;
+  	top: -16px;
   	right: 0;
 }
 
