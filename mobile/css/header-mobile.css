@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    position: relative;
 }
 .header {
     width: 100%;
@@ -7,6 +8,8 @@ body {
     border-bottom:1px solid #dcdcdc;
     position:relative;
     min-width:468px;
+    z-index: 2;
+    background-color: white;
 }
 .header>.menu {
 	width:77px;
@@ -31,6 +34,12 @@ body {
 	right:208px;
 	cursor:pointer;
 }
+.header>.logo>a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-size: 0;
+}
 .header>.control {
 	width:207px;
 	height:100%;
@@ -49,14 +58,27 @@ body {
 	background-position:center center;
 	background-size:17px 29px;
 }
+.header>.control>.member>a {
+	width: 100%;
+	height: 100%;
+	display: block;
+	font-size: 0;	
+}
 .header>.control>.wish {
 	background-image:url(http://456.sweesa.com/sp/sp_04.png);
 	background-position:center 32px;
 	background-size:24px 20px;
 	font-size: 1.25em;
-    font-family: arial;
-    text-align: center;
-    line-height: 2.1em;
+	font-family: arial;
+	text-align: center;
+	line-height: 2.1em;
+}
+.header>.control>.wish>a {
+	color:black;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: block;
 }
 .header>.control>.cart {
 	background-image:url(http://456.sweesa.com/sp/sp_05.png);
@@ -69,7 +91,35 @@ body {
     width: 65.3px;
     padding-right: 3px;
 }
-.header>.menubox {
-	
+.header>.control>.cart>a {
+	color:black;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: block;
 }
-
+.menubox {
+	width:483px;
+	position: absolute;
+	background-color: white;
+	top: 0;
+	bottom: 0;
+	padding-top: 78px;
+	padding-bottom: 78px;
+	z-index: 1;
+	left: -483px;
+	transition: left .4s;
+}
+.topbtn {
+	background-image:url('http://456.sweesa.com/sp/sp_08.png');
+	width:50px;
+	height:65px;
+	background-size: 50px 65px;
+	position: fixed;
+	right: 0;
+	bottom: 100px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center center;
+	display:none;
+}

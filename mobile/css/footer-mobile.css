@@ -1,0 +1,15 @@
+.footer {
+
+}
+
+.footer>.copyright {
+	height:66px;
+	background-color:#323232;
+	position:relative;
+	z-index:1;
+	color: white;
+	font-family: arial;
+	letter-spacing: 1px;
+	text-align: center;
+	line-height: 66px;
+}
