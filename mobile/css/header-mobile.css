@@ -130,3 +130,25 @@ body {
 	background-position: center center;
 	display:none;
 }
+.searchtext {
+	font-size: 25px;
+	width: 350px;
+	height: 27px;
+	text-align: right;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	outline: none;
+	margin-top: 30px;
+}
+.searchsubmit {
+	width: 27px;
+	height: 27px;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	background-color: transparent;
+	color: transparent;
+	background-image: url(http://456.sweesa.com/sp/sp_13.png);
+	background-size: 27px 27px;
+}
