@@ -110,4 +110,7 @@ $(function() {
 			$.getJSON("../../../../common/ajax/menucmd.ashx?t=mobile", getdata);
 		}
 	})();
+	(function() {
+		$("#main-content").css("min-height",$window.height() - $(".header").height() - $(".footer").height());
+	})(); //adjust
 });

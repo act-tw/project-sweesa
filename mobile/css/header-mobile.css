@@ -104,11 +104,18 @@ body {
 	background-color: white;
 	top: 0;
 	bottom: 0;
-	padding-top: 78px;
-	padding-bottom: 78px;
 	z-index: 1;
 	left: -483px;
 	transition: left .4s;
+	height: 100%;
+}
+.slide {
+	width: 100%;
+	padding-top: 78px;
+	bottom: 66px;
+	top: 0;
+	position: absolute;
+	overflow: scroll;
 }
 .topbtn {
 	background-image:url('http://456.sweesa.com/sp/sp_08.png');
