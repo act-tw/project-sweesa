@@ -101,11 +101,11 @@ body {
 .menubox {
 	width:483px;
 	position: absolute;
-	background-color: white;
+	background-color: green;
 	top: 0;
-	bottom: 0;
-	padding-top: 78px;
-	padding-bottom: 78px;
+	display:none;
+	margin-top: 78px;
+	padding-bottom: 66px;
 	z-index: 1;
 	left: -483px;
 	transition: left .4s;
