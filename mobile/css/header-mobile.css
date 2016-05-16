@@ -195,7 +195,7 @@ body {
 .selected {
     background-color: #eeeeee;
 }
-.level2>a {
+.level1>a,.level2>a {
     color:black;
     text-decoration:none;
 }

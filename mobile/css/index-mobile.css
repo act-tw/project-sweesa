@@ -1,0 +1,7 @@
+.index {
+	background-color:blue;
+}
+
+.index>.rotate>a:first-child {
+	position:absolute;
+}
