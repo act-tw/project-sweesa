@@ -7,11 +7,11 @@
 	width:100%;
 }
 
-.index>.rotatedot {
+.index>.navi {
 	text-align:center;
 }
 
-.index>.rotatedot>span {
+.index>.navi>span {
 	width:10px;
 	height:10px;
 	background-color:#8f8f8f;
@@ -21,10 +21,10 @@
 	cursor:pointer;
 }
 
-.index>.rotatedot>span.active {
+.index>.navi>span.active {
 	background-color:#d2d2d2;
 }
 
-.index>.rotatepreload {
+.index>.preload {
 	display:none;
 }
