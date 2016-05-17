@@ -1,4 +1,5 @@
 $(function() {
+	var isTest = true;
 	var isLocal = /^file\:\/\/\//i.test(location.href);
 	(function() {
 		function dot() {
@@ -46,19 +47,53 @@ $(function() {
 				next(data[i][0],data[i][1],i);
 				i++;
 				$(".rotatedot>span").click(function() {
-					var nowat = parseInt($(".rotate>a:first>img").attr("alt"));
-					var index = $(this).index();
+					var nowat = parseInt($(".rotate>a:first>img").attr("alt")),
+						index = $(this).index();
 					if (nowat !== index) {
 						$(".rotate>a:last").attr("href",data[index][1]).find(">img").attr({src:data[index][0],alt:index});
 						next(data[index][0],data[index][1],index,true);
+						i = index;
 					}
 				});
 			})();
 			(function() {
-				
+				var isTouch = false,
+					move = 0;
+				function prev() {
+					$(".rotatedot>span.active").prev().click();
+				}
+				function next() {
+					$(".rotatedot>span.active").next().click();
+				}
+                if ("ontouchstart" in document.documentElement) {
+                    isTouch = true;
+                }
+                $(".rotate").on(isTouch ? "touchstart" : "mousedown", "img" , function (e) {
+                    if (e.type === "mousedown") {
+                        move = e.pageX;
+                    } else {
+                        move = e.originalEvent.touches[0].pageX;
+                    }
+                });
+                $(".rotate").on(isTouch? "touchmove": "mousemove", "img", function (e) {
+                    var target;
+                    if (e.type === "mousemove") {
+                        target = e.pageX;
+                    } else {
+                        target = e.originalEvent.touches[0].pageX;
+                    }
+                    if (move !== 0 && Math.abs(target - move) > 50) {
+                        if (target < move) {
+                            next();
+                        } else {
+                            prev();
+                        }
+                        move = 0;
+                    }
+                });
 			})();
 		}
-		if (isLocal) {
+		if (isLocal || isTest) {
 			getdata([["http://123.sweesa.com/new/1.jpg",""],["http://123.sweesa.com/new/2.jpg",""],["http://123.sweesa.com/new/3.jpg",""],["http://123.sweesa.com/new/4.jpg",""],["http://123.sweesa.com/new/5.jpg",""],["http://123.sweesa.com/new/6.jpg",""],["http://123.sweesa.com/new/7.jpg",""],["http://123.sweesa.com/new/8.jpg",""]]);
 		} else {
 			$.getJSON("../../../../common/customhtml.ashx?code=CacoAdRotator", getdata);
