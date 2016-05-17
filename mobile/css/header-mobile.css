@@ -129,6 +129,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     display: none;
+    z-index:1;
 }
 .searchtext {
     font-size: 17px;

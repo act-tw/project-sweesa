@@ -1,7 +1,30 @@
 .index {
-	background-color:blue;
+	
 }
 
 .index>.rotate>a:first-child {
 	position:absolute;
+	width:100%;
+}
+
+.index>.rotatedot {
+	text-align:center;
+}
+
+.index>.rotatedot>span {
+	width:10px;
+	height:10px;
+	background-color:#8f8f8f;
+	display: inline-block;
+	border-radius: 5px;
+	margin: 15px 5px;
+	cursor:pointer;
+}
+
+.index>.rotatedot>span.active {
+	background-color:#d2d2d2;
+}
+
+.index>.rotatepreload {
+	display:none;
 }
