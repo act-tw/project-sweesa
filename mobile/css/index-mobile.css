@@ -1,16 +1,10 @@
-.index {
-	
-}
-
 .index>.rotate>a:first-child {
 	position:absolute;
 	width:100%;
 }
-
 .index>.navi {
 	text-align:center;
 }
-
 .index>.navi>span {
 	width:10px;
 	height:10px;
@@ -20,11 +14,44 @@
 	margin: 15px 5px;
 	cursor:pointer;
 }
-
 .index>.navi>span.active {
 	background-color:#d2d2d2;
 }
-
 .index>.preload {
 	display:none;
 }
+.index>.event {
+	position:relative;
+}
+.index>.event>.outbox {
+	width: 86.25%;
+	margin: 0 auto;
+	overflow:hidden;
+}
+.index>.event>.outbox>.inbox {
+	position:relative;
+	left: 0px;
+}
+.index>.event>.outbox>.inbox>a {
+	display: block;
+	float:left;
+}
+.index>.event>.outbox>.inbox>a>img {
+	width:100%;
+}
+.index>.event>.flagleft {
+	width:6.09375%;
+	position: absolute;
+	top: 50%;
+	margin-top: -4.921875%;
+	cursor:pointer;
+}
+.index>.event>.flagright {
+	width:6.09375%;
+	position: absolute;
+	top: 50%;
+	right:0;
+	margin-top: -4.921875%;
+	cursor:pointer;
+}
+
