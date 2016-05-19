@@ -22,6 +22,7 @@
 }
 .index>.event {
 	position:relative;
+	margin-top: 66px;
 }
 .index>.event>.outbox {
 	width: 86.25%;
@@ -54,4 +55,12 @@
 	margin-top: -4.921875%;
 	cursor:pointer;
 }
-
+.index>.newarrival {
+	background-image:url(http://456.sweesa.com/sp/sp_09.png);
+	margin-top: 100px;
+	border-top: 1px solid #bdbdbd;
+	background-repeat: no-repeat;
+	background-size: 22.65625%;
+	background-position: center center;
+	min-height: 100px;
+}

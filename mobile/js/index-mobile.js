@@ -172,4 +172,29 @@ $(function() {
 			$.getJSON("../../../../common/customhtml.ashx?code=CacoAdSelector", getdata);
 		}
 	})(); //tips
+
+    (function () {
+        var url = "../../../../Shop/itemlist.aspx?m=";
+        $.ajax({
+            url: "../../../../common/customhtml.ashx?code=HomeRecommendItem",
+            async: false,
+            dataType: "html",
+            success: function (html) {
+                url += html;
+            }
+        });
+        $.ajax({
+            url: url,
+            cache: false,
+            async: true,
+            type: "get",
+            dataType: "html",
+            success: function (html) {
+            	console.log(html);
+
+            }
+        });
+
+    })(); //items
+
 });
