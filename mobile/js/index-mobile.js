@@ -1,5 +1,5 @@
 $(function() {
-	var isTest = true;
+	var isTest = false;
 	var isLocal = /^file\:\/\/\//i.test(location.href);
 	(function() {
 		var $rotate = $(".rotate");

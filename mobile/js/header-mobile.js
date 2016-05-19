@@ -1,5 +1,5 @@
 $(function() {
-	var isTest = true,
+	var isTest = false,
 		isLocal = /^file\:\/\/\//i.test(location.href),
 		$window = $(window),
 		$document = $(document),
@@ -219,5 +219,6 @@ $(function() {
 	})();
 	(function() {
 		$("#main-content").css("min-height",$window.height() - $(".header").height() - $(".footer").height());
+		$("meta[name='viewport']").attr("content","width=640;initial-scale=1.0;maximum-scale=1.0; user-scalable=0;");
 	})(); //adjust
 });

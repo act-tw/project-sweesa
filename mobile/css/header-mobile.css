@@ -133,31 +133,35 @@ body {
 }
 .searchtext {
     font-size: 17px;
-    width: 300px;
+    width: 300px!important;
     height: 22px;
-    text-align: right;
-    padding: 0;
-    border: 0;
-    margin: 0;
-    outline: none;
-    margin-top: 48px;
-    margin-left: 50px;
-    margin-right: 22px;
+    text-align: right!important;
+    padding: 0!important;
+    border: 0!important;
+    margin: 0!important;
+    outline: none!important;
+    margin-top: 48px!important;
+    margin-left: 50px!important;
+    margin-right: 22px!important;
     font-style: italic;
-    background-color: transparent;
+    background-color: transparent!important;
+    border-style: none!important;
+    display: inline!important;
+    text-shadow: initial!important;
 }
 .searchsubmit {
-    width: 27px;
-    height: 27px;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    color: transparent;
-    background-image: url(http://456.sweesa.com/sp/sp_13.png);
-    background-size: 27px 27px;
-    position: relative;
-    top: -5px;
+    width: 27px!important;
+    height: 27px!important;
+    border: 0!important;
+    padding: 0!important;
+    margin: 0!important;
+    background-color: transparent!important;
+    color: transparent!important;
+    background-image: url(http://456.sweesa.com/sp/sp_13.png)!important;
+    background-size: 27px 27px!important;
+    position: relative!important;
+    top: -5px!important;
+    opacity: 1!important;
 }
 .level1 {
     font-size: 27px;
@@ -203,4 +207,19 @@ body {
 .level3>a {
     color:#646464;
     text-decoration:none;
+}
+.menubox .ui-input-text {
+    display: initial!important;
+    border-style: initial!important;
+    box-shadow: initial!important;
+}
+.menubox .ui-focus {
+    text-shadow:initial!important;
+    -webkit-box-shadow:initial!important;
+    -moz-box-shadow:initial!important;
+    box-shadow:initial!important;
+}
+.menubox .ui-btn {
+    border-style: initial!important;
+    display: initial!important;
 }
