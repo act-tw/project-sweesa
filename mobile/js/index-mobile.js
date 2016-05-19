@@ -1,6 +1,6 @@
 $(function() {
-	var isTest = false;
-	var isLocal = /^file\:\/\/\//i.test(location.href);
+	var isTest = false,
+		isLocal = /^file\:\/\/\//i.test(location.href);
 	(function() {
 		var $rotate = $(".rotate");
 		function dot() {
@@ -172,7 +172,6 @@ $(function() {
 			$.getJSON("../../../../common/customhtml.ashx?code=CacoAdSelector", getdata);
 		}
 	})(); //tips
-
     (function () {
         var url = "../../../../Shop/itemlist.aspx?m=";
         $.ajax({
@@ -190,11 +189,9 @@ $(function() {
             type: "get",
             dataType: "html",
             success: function (html) {
-            	console.log(html);
-
+            	//console.log(html);
+            	//todo
             }
         });
-
     })(); //items
-
 });

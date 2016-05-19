@@ -218,7 +218,9 @@ $(function() {
 		}
 	})();
 	(function() {
-		$("#main-content").css("min-height",$window.height() - $(".header").height() - $(".footer").height());
+		$window.load(function() {
+			$(".ui-content").css("min-height",$window.height() - $(".header").height() - $(".footer").height());
+		});	
 		$("meta[name='viewport']").attr("content","width=640;initial-scale=1.0;maximum-scale=1.0; user-scalable=0;");
 	})(); //adjust
 });
