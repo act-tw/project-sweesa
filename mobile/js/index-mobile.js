@@ -173,7 +173,7 @@ $(function() {
 		}
 	})(); //tips
     (function () {
-        var url = "../../../../Shop/itemlist.aspx?m=";
+        var url = "../Shop/itemlist.aspx?m=";
         $.ajax({
             url: "../../../../common/customhtml.ashx?code=HomeRecommendItem",
             async: false,
@@ -189,8 +189,8 @@ $(function() {
             type: "get",
             dataType: "html",
             success: function (html) {
-            	//console.log(html);
-            	//todo
+                var a = $(html.substr(html.indexOf("<html"))).find(".grid");
+                $(".grid").html(a.html().replace(/itemDetail.aspx/ig, "../Shop/itemDetail.aspx"));
             }
         });
     })(); //items
