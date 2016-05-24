@@ -31,7 +31,7 @@
 }
 .index>.event>.outbox>.inbox {
 	position:relative;
-	left: 0px;
+	left: 0;
 }
 .index>.event>.outbox>.inbox>a {
 	display: block;
