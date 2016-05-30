@@ -201,7 +201,7 @@ body {
     background-color: #eeeeee;
 }
 .level1>a,.level2>a {
-    color:black;
+    color:black !important;
     text-decoration:none;
 }
 .level3>a {
@@ -222,4 +222,11 @@ body {
 .menubox .ui-btn {
     border-style: initial!important;
     display: initial!important;
+}
+#container>.menubox>div>div>form>div {
+    background-image: none;
+    background-color: white;
+}
+#container>.menubox>div>div>form>div>span {
+    display:none;
 }
