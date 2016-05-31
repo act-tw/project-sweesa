@@ -1,7 +1,70 @@
-$(function() {
-    var isTest = false,
-        isLocal = /^file\:\/\/\//i.test(location.href),
-        $window = $(window),
+var isTest = false,
+    isLocal = /^file\:\/\/\//i.test(location.href);
+function cartList() {
+    function getdata(cartlist) {
+        var count = 0;
+        try {
+            if (cartlist[0].MerName) {
+                for (var i = 0, max = cartlist.length; i < max; i++) {
+                    count += cartlist[i].Num;
+                }
+            }
+        } catch (e) {
+        }
+        $(".cart>a").text(count);
+    }
+    if (isLocal || isTest) {
+        getdata([
+            {
+                MerNo: "S5230212",
+                MerNo1: "5230212",
+                MerName: "--test--MLB-波士頓紅襪隊爆裂效果T恤(男)",
+                Color: "紫",
+                Size: "M",
+                Price: 616,
+                Num: 1,
+                PhotoSmPath: "http://www.ohho.com.tw/GOGO/MLB/2012SS/220x220/5230212-780.jpg",
+                ColorPhotoPath: "http://www.ohho.com.tw/GOGO/色塊/-550.jpg"
+            }
+        ]);
+    } else {
+        $.getJSON("../../../../Common/CartList.ashx", getdata);
+    }
+}
+function wishList() {
+    function getdata(wishlist) {
+        var count = 0;
+        try {
+            if (wishlist[0].MerName) {
+                for (var i = 0, max = wishlist.length; i < max; i++) {
+                    count += 1;
+                }
+            }
+        } catch (e) {
+        }
+        $(".wish>a").text(count);
+    }
+    if (isLocal || isTest) {
+        getdata([
+            {
+                tidno: 17,
+                MerNo1: "5230212",
+                MerName: "--test--MLB-波士頓紅襪隊爆裂效果T恤(男)",
+                Color: "灰",
+                Size: "2XL",
+                Price: 616,
+                PhotoSmPath: "http://www.ohho.com.tw/GOGO/MLB/2012SS/220x220/5230212-850.jpg",
+                DetailUrl: "itemDetail.aspx?mNo1=5230212",
+                merOrderNum: 0,
+                ColorPhotoPath: "http://www.ohho.com.tw/GOGO/色塊/-900.jpg"
+            }
+        ]);
+    } else {
+        $.getJSON("../Ajax/CartCmd.ashx?method=GetTraceList&returntype=json", getdata);
+    }
+}
+$(function () {
+    var $window = $(window),
         $document = $(document),
         $menu = $(".menu"),
         $menubox = $(".menubox"),
@@ -43,71 +106,6 @@ $(function() {
             }
         }
     });
-    (function() {
-        function getdata(cartlist) {
-            var count = 0;
-            try {
-                if (cartlist[0].MerName) {
-                    for (var i = 0, max = cartlist.length; i < max; i++) {
-                        count += cartlist[i].Num;
-                    }
-                }
-            } catch (e) {
-            }
-            $(".cart>a").text(count);
-        }
-
-        if (isLocal || isTest) {
-            getdata([
-                {
-                    MerNo: "S5230212",
-                    MerNo1: "5230212",
-                    MerName: "--test--MLB-波士頓紅襪隊爆裂效果T恤(男)",
-                    Color: "紫",
-                    Size: "M",
-                    Price: 616,
-                    Num: 1,
-                    PhotoSmPath: "http://www.ohho.com.tw/GOGO/MLB/2012SS/220x220/5230212-780.jpg",
-                    ColorPhotoPath: "http://www.ohho.com.tw/GOGO/色塊/-550.jpg"
-                }
-            ]);
-        } else {
-            $.getJSON("../../../../Common/CartList.ashx", getdata);
-        }
-    })();
-    (function() {
-        function getdata(wishlist) {
-            var count = 0;
-            try {
-                if (wishlist[0].MerName) {
-                    for (var i = 0, max = wishlist.length; i < max; i++) {
-                        count += 1;
-                    }
-                }
-            } catch (e) {
-            }
-            $(".wish>a").text(count);
-        }
-
-        if (isLocal || isTest) {
-            getdata([
-                {
-                    tidno: 17,
-                    MerNo1: "5230212",
-                    MerName: "--test--MLB-波士頓紅襪隊爆裂效果T恤(男)",
-                    Color: "灰",
-                    Size: "2XL",
-                    Price: 616,
-                    PhotoSmPath: "http://www.ohho.com.tw/GOGO/MLB/2012SS/220x220/5230212-850.jpg",
-                    DetailUrl: "itemDetail.aspx?mNo1=5230212",
-                    merOrderNum: 0,
-                    ColorPhotoPath: "http://www.ohho.com.tw/GOGO/色塊/-900.jpg"
-                }
-            ]);
-        } else {
-            $.getJSON("../Ajax/CartCmd.ashx?method=GetTraceList&returntype=json", getdata);
-        }
-    })();
     (function() {
         function queryString(name) {
             var data = window.location.search.substring(1).split("&");
@@ -227,11 +225,28 @@ $(function() {
         } else {
             $.getJSON("../../../../common/ajax/menucmd.ashx?t=mobile", getdata);
         }
-    })();
+    })(); //menu
     (function() {
         $window.load(function() {
             $(".ui-content").css("min-height", $window.height() - $(".header").height() - $(".footer").height());
         });
         $("meta[name='viewport']").attr("content", "width=640;initial-scale=1.0;maximum-scale=1.0; user-scalable=0;");
     })(); //adjust
+    (function () {
+        if (/itemfav.aspx/i.test(location.href)) {
+            $("#m_itemList").on("click", ".m_traceCtr :button", function (e) {
+                setTimeout(function() {
+                    cartList();
+                    wishList();
+                }, 500);
+            });
+        }
+        if (/cartlist.aspx/i.test(location.href)) {
+        }
+    })(); //itemFav.aspx and cartList.aspx only
+    (function() {
+        cartList();
+        wishList();
+    })(); //init
+
 });
